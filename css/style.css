@@ -344,10 +344,19 @@ section { position: relative; }
 /* ============ GALLERY ============ */
 .gallery { padding: 120px 0; background: var(--off-white); }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.gallery-item { border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-md); }
+.gallery-item { position: relative; border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-md); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .gallery-item:hover img { transform: scale(1.08); }
 .gallery-item.tall { grid-row: span 2; aspect-ratio: 4/6.4; }
+.gallery-tag {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  display: flex; align-items: center; gap: 6px;
+  background: var(--black); color: var(--white);
+  font-family: var(--font-head); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 6px 12px; border-radius: 999px; border-left: 3px solid var(--ember-1);
+  box-shadow: var(--shadow-md);
+}
+.gallery-tag .gallery-tag-sep { color: var(--ember-1); }
 
 /* ============ CONTACT ============ */
 .contact { padding: 120px 0; background: var(--black); color: var(--white); }
