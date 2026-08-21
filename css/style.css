@@ -129,6 +129,8 @@ section { position: relative; }
 .hero .btn-outline:hover { background: var(--white); color: var(--black); border-color: var(--white); }
 .btn-lg { padding: 17px 36px; font-size: 0.95rem; }
 .btn-nav { padding: 11px 24px; font-size: 0.82rem; }
+.btn-outline--light { border-color: rgba(255, 255, 255, 0.35); color: var(--white); }
+.btn-outline--light:hover { background: var(--white); color: var(--black); border-color: var(--white); }
 
 /* ============ LOADING SCREEN ============ */
 #loading-screen {
@@ -172,6 +174,7 @@ section { position: relative; }
 
 .main-nav { display: flex; align-items: center; gap: 36px; }
 .main-nav ul { display: flex; gap: 30px; }
+.nav-cta-group { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .nav-link {
   font-family: var(--font-head);
   font-size: 0.85rem;
@@ -229,6 +232,7 @@ section { position: relative; }
 .hero-phone svg { color: var(--ember-1); }
 .hero-phone a { font-weight: 600; color: var(--white); }
 .hero-phone a:hover { color: var(--ember-1); }
+.hero-phone + .hero-phone { margin-top: 8px; }
 
 .scroll-indicator {
   position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
@@ -341,6 +345,17 @@ section { position: relative; }
 .feature-card h3 { font-size: 1.05rem; text-transform: none; letter-spacing: 0; margin-bottom: 10px; }
 .feature-card p { color: var(--text-muted-light); font-size: 0.94rem; }
 
+/* ============ HISTORIA ============ */
+.history { padding: 110px 0; background: var(--off-white); border-bottom: 1px solid var(--gray-100); }
+.history .feature-card { background: var(--white); }
+.history-social {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--ember-solid);
+}
+.history-social svg { width: 16px; height: 16px; }
+.history-social:hover { color: var(--ember-2); }
+
 /* ============ GALLERY ============ */
 .gallery { padding: 120px 0; background: var(--off-white); }
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -408,8 +423,29 @@ section { position: relative; }
   0%, 100% { box-shadow: 0 14px 30px -10px rgba(226, 52, 35, 0.6); }
   50% { box-shadow: 0 14px 30px -6px rgba(226, 52, 35, 0.85); }
 }
+.whatsapp-float--secondary { bottom: 98px; }
+.whatsapp-float-badge {
+  position: absolute; top: -6px; right: -6px; z-index: 1;
+  background: var(--black); color: var(--white);
+  font-family: var(--font-head); font-size: 0.58rem; font-weight: 600; letter-spacing: 0.03em;
+  padding: 3px 7px; border-radius: 999px; text-transform: uppercase;
+  border: 2px solid var(--off-white);
+}
 
 /* ============ RESPONSIVE ============ */
+@media (max-width: 1150px) {
+  .main-nav {
+    position: fixed; top: 0; right: -100%; width: min(320px, 82%); height: 100vh;
+    background: var(--black); flex-direction: column; align-items: flex-start; justify-content: center;
+    padding: 40px; gap: 40px; transition: right var(--transition); z-index: 1000;
+  }
+  .main-nav.open { right: 0; box-shadow: -20px 0 50px rgba(0,0,0,0.4); }
+  .main-nav ul { flex-direction: column; gap: 22px; }
+  .nav-cta-group { flex-direction: column; align-items: stretch; width: 100%; }
+  .nav-cta-group .btn { width: 100%; }
+  .nav-toggle { display: flex; }
+}
+
 @media (max-width: 992px) {
   .about-grid { grid-template-columns: 1fr; gap: 50px; }
   .about-media { max-width: 420px; margin: 0 auto; }
@@ -423,14 +459,6 @@ section { position: relative; }
 }
 
 @media (max-width: 768px) {
-  .main-nav {
-    position: fixed; top: 0; right: -100%; width: min(320px, 82%); height: 100vh;
-    background: var(--black); flex-direction: column; align-items: flex-start; justify-content: center;
-    padding: 40px; gap: 40px; transition: right var(--transition); z-index: 1000;
-  }
-  .main-nav.open { right: 0; box-shadow: -20px 0 50px rgba(0,0,0,0.4); }
-  .main-nav ul { flex-direction: column; gap: 22px; }
-  .nav-toggle { display: flex; }
   .hero { padding: 140px 0 80px; }
   .parallax-banner { background-attachment: scroll; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
